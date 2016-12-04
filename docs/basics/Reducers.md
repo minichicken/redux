@@ -1,17 +1,22 @@
 # Reducers
 
 [Actions](./Actions.md) describe the fact that *something happened*, but don't specify how the application's state changes in response. This is the job of reducers.
-
+액션들은 이벤트가 발생한 사실을 표현한 것이고,  어떻게 어플케이션의 상태가 응답에 대해서 변해야 하는지 규정하지는 않는다. 이것은 reducers의 일이다.
 ## Designing the State Shape
 
 In Redux, all the application state is stored as a single object. It's a good idea to think of its shape before writing any code. What's the minimal representation of your app's state as an object?
 
-For our todo app, we want to store two different things:
 
-* The currently selected visibility filter;
-* The actual list of todos.
+Redux에서는, 모든 어플리케이션의 상태는 하나의 객체로써 저장되어진다. 어떤 코드로 작성했던 간에 이것은 매우 좋은 생각이다. 객체로써 당신의 앱에 대한 최소한의 표현은 무엇인가?
+
+For our todo app, we want to store two different things:
+우리의 todo 앱에서는, 우리는 2가지 다른 것을 저장하길 원한다:
+
+* The currently selected visibility filter; 현재 선택된 가시화 필터
+* The actual list of todos. todo들의 실제 리스트
 
 You'll often find that you need to store some data, as well as some UI state, in the state tree. This is fine, but try to keep the data separate from the UI state.
+우리는 종종 어떤 데이를 저장해야하는것을 상태 트리에서, 어떤 UI의 상태 까지도 저장해야 함을 발견할수 있다. 이것은 좋은 방법이지만, UI 상태와 분리된 데이터를 유지하려고 한다.
 
 ```js
 {
